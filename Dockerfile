@@ -12,4 +12,7 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
     rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/* /var/tmp/*
+    rm -rf /tmp/* /var/tmp/* && \
+    \
+    pip install pip -U && \
+    pip install pyvisa
