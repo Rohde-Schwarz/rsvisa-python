@@ -7,7 +7,7 @@ Python image Dockerfile baked with a R&amp;S VISA in order to test with instrume
 Start the Docker image by calling
 
 ```shell
-docker run -it -p 4880:4880 --entrypoint /bin/bash docker.io/casabre/rsvisa-python:3.8
+docker run -it -p 4880:4880 docker.io/casabre/rsvisa-python:3.8
 ```
 
 Port 4880 is the HiSLIP control channel which can be utilized for VXI11 connections too. If you need more ports, you can refer to the following table.
@@ -19,14 +19,7 @@ Port 4880 is the HiSLIP control channel which can be utilized for VXI11 connecti
 | 5024 | Telnet port                                              |
 | 5025 | Raw socket port                                          |
 
-In the container, you can install now pyvisa for instance and run Python
-
-```shell
-root@container: pip install pyvisa
-root@container: python
-```
-
-In the Python REPL, you can import pyvisa for controlling your instruments.
+In the Python's REPL of the container, you can import pyvisa for controlling your instruments.
 
 ```Python
 >>> import pyvisa
