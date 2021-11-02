@@ -44,7 +44,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          build-args: PYTHON_INTERPRETER=${{ matrix.PYTHON_INTERPRETER }},PYTHON_VERSION=${{ matrix.PYTHON_VERSION }}
+          build-args: |
+            PYTHON_INTERPRETER="${{ matrix.PYTHON_INTERPRETER }}"
+            PYTHON_VERSION="${{ matrix.PYTHON_VERSION }}"
           tags: ${{ env.build_tag }}
           # tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
