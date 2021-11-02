@@ -7,7 +7,7 @@ on:
         type: string
       python-version:
         required: true
-        type: number
+        type: string
     secrets:
       username:
         required: true
