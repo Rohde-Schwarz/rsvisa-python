@@ -1,0 +1,62 @@
+name: Publish Docker image
+on:
+  workflow_call:
+    inputs:
+      python-interpreter:
+        required: true
+        type: string
+      python-version:
+        required: true
+        type: number
+    secrets:
+      username:
+        required: true
+      password:
+        required: true
+
+jobs:
+  build_image:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ${{ fromJSON(inputs.python-version) }}
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: my-docker-hub-namespace/my-docker-hub-repository
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Create Tag
+        run: |
+          echo "build_tag=docker.io/casabre/rsvisa-${{ inputs.python-interpreter }}:${{ matrix.python-version }}" >> $GITHUB_ENV
+          echo "Tag: ${{ env.build_tag }}"
+
+      - name: Build container image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          build-args: |
+            PYTHON_INTERPRETER=${{ inputs.python-interpreter }}
+            PYTHON_VERSION=${{ matrix.python-version }}
+          tags: ${{ env.build_tag }}
+          # tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
