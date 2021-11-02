@@ -8,7 +8,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: [3.6, 3.7, 3.8, 3.9]
+        PYTHON_INTERPRETER: ["python", "pypy"]
+        PYTHON_VERSION: [3.6, 3.7, 3.8, 3.9]
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -34,7 +35,7 @@ jobs:
 
       - name: Create Tag
         run: |
-          echo "build_tag=docker.io/casabre/rsvisa-python:${{ matrix.python }}" >> $GITHUB_ENV
+          echo "build_tag=docker.io/casabre/rsvisa-${{ matrix.PYTHON_INTERPRETER }}:${{ matrix.PYTHON_VERSION }}" >> $GITHUB_ENV
           echo "Tag: ${{ env.build_tag }}"
 
       - name: Build container image
@@ -43,6 +44,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          build-args: PYTHON_INTERPRETER=${{ matrix.PYTHON_INTERPRETER }},PYTHON_VERSION=${{ matrix.PYTHON_VERSION }}
           tags: ${{ env.build_tag }}
           # tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
