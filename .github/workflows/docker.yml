@@ -14,6 +14,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+    if: "!(contains(${{ matrix.PYTHON_INTERPRETER }}, 'pypy') && contains(${{ matrix.PYTHON_VERSION }}, 3.9)"
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
