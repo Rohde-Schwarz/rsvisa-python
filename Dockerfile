@@ -3,6 +3,8 @@ ARG PYTHON_VERSION="3.8-slim"
 FROM ${PYTHON_INTERPRETER}:${PYTHON_VERSION}
 ARG RS_VISA_VERSION="5.12.3"
 
+SHELL ["/bin/bash", "-c"]
+
 # Install R&S VISA
 ADD https://scdn.rohde-schwarz.com/ur/pws/dl_downloads/dl_application/application_notes/1dc02___rs_v/rsvisa_${RS_VISA_VERSION}_amd64.deb rsvisa.deb
 RUN apt-get update && \
