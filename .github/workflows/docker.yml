@@ -9,7 +9,7 @@ jobs:
     uses: casabre/rsvisa-python/.github/workflows/docker_build.yml@main
     with:
       python-interpreter: python
-      python-version: "[3.6, 3.7, 3.8, 3.9]"
+      python-version: "[3.6-slim-buster, 3.6-buster, 3.6-slim-bullseye, 3.6-bullseye, 3.6-slim, 3.6, 3.7-slim-buster, 3.7-buster, 3.7-slim-bullseye, 3.7-bullseye, 3.7-slim, 3.7, 3.8-slim-buster 3.8-buster, 3.8-slim-bullseye, 3.8-bullseye, 3.8-slim, 3.8]"
     secrets:
       username: ${{ secrets.DOCKER_USERNAME }}
       password: ${{ secrets.DOCKER_PASSWORD }}
@@ -19,7 +19,7 @@ jobs:
     uses: casabre/rsvisa-python/.github/workflows/docker_build.yml@main
     with:
       python-interpreter: pypy
-      python-version: "[3.6, 3.7, 3.8]"
+      python-version: "[3.6-slim-buster, 3.6-buster, 3.6-slim-bullseye, 3.6-bullseye, 3.6-slim, 3.6, 3.7-slim-buster, 3.7-buster, 3.7-slim-bullseye, 3.7-bullseye, 3.7-slim, 3.7, 3.8-slim-buster 3.8-buster, 3.8-slim-bullseye, 3.8-bullseye, 3.8-slim, 3.8]"
     secrets:
       username: ${{ secrets.DOCKER_USERNAME }}
       password: ${{ secrets.DOCKER_PASSWORD }}
