@@ -15,5 +15,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* /var/tmp/* && \
     \
+    echo -e "[Paths]\n\nVISA library: /usr/lib/libvisa.so" > ~/.pyvisarc && \
     pip install pip -U && \
     pip install pyvisa
