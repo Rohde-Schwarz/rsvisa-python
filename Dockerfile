@@ -8,7 +8,7 @@ ARG TARGETPLATFORM
 SHELL ["/bin/bash", "-c"]
 
 # Install R&S VISA
-RUN echo "Target platform: $TARGETPLATFORM"
+RUN echo "Target platform: $TARGETPLATFORM" && \
     apt-get update && \
     apt-get install dpkg libavahi-client3 libavahi-common3 libqt5core5a libqt5gui5 libqt5widgets5 libusb-1.0-0 -y && \
     VISA_ARCH=$(if [[ "$TARGETPLATFORM" =~ "arm" ]]; then echo "armhf"; else echo "amd64"; fi) && \
