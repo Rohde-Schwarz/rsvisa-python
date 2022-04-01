@@ -14,9 +14,9 @@ License: GNU GENERAL PUBLIC LICENSE v2
 https://git.dpkg.org/cgit/dpkg/dpkg.git/tree/COPYING
 
 ### curl
-License: custom
+License: custom  
 https://curl.se/docs/copyright.html
 
 ### libqt5widgets5
-License: GNU LGPL version 3 or GPL
+License: GNU LGPL version 3 or GPL  
 https://doc.qt.io/qt-5.15/licensing.html
