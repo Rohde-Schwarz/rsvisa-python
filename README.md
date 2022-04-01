@@ -4,10 +4,16 @@ Python image Dockerfile baked with a R&amp;S VISA in order to test with instrume
 
 ## Getting started
 
+Building the Docker image by calling
+
+```shell
+docker build --build-arg="python" --build-arg="3.8" -t rsvisa-python:3.8 .
+```
+
 Start the Docker image by calling
 
 ```shell
-docker run -it docker.io/casabre/rsvisa-python:3.8
+docker run -it rsvisa-python:3.8
 ```
 
 In the Python's REPL of the container, you can import pyvisa for controlling your instruments.
