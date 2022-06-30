@@ -7,7 +7,7 @@ Python image Dockerfile baked with a R&amp;S VISA in order to test with instrume
 Building the Docker image by calling
 
 ```shell
-docker build --build-arg="python" --build-arg="3.8" -t rsvisa-python:3.8 .
+docker build --build-arg=PYTHON_INTERPRETER="python" --build-arg=PYTHON_VERSION="3.8" -t rsvisa-python:3.8 .
 ```
 
 Start the Docker image by calling
