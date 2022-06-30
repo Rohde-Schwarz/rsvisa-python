@@ -1,6 +1,6 @@
 # rsvisa-python
 
-Python image Dockerfile baked with a R&amp;S VISA in order to test with instruments. The utilized R&S VISA version is 5.12.3.
+Python image Dockerfile baked with a R&amp;S VISA in order to test with instruments. The utilized R&S VISA version is 5.12.3. Furthermore, `pyvisa` is already pre-installed and configured to use R&S VISA.
 
 ## Getting started
 
