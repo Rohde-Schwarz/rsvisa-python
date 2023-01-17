@@ -29,4 +29,4 @@ In the Python's REPL of the container, you can import pyvisa for controlling you
 
 ## License
 
-The Dockerfile is licensed under [LICENSE](LICENSE). With Dockerfile building and execution you are accepting all listed 3rd party license under the [`/licenses`](licenses) folder.
+The Dockerfile is licensed under [LICENSE](LICENSE). With Dockerfile building and execution you are accepting additional [`third-party licenses`](third-party licenses).
